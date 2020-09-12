@@ -19,4 +19,4 @@ public interface ISymptomReader {
 	List<String> GetSymptoms ();
 }
 
-// Each interface must be declared in its own field.
+// Each interface must be declared in its own file.
