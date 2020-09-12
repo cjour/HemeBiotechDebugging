@@ -7,11 +7,12 @@ import java.util.List;
  * The important part is, the return value from the operation, which is a list of strings,
  * that may not contain many duplications
  * 
- * The implementation must return an orderlist
+ * The implementation must return an order list
  * 
  */
 // Each interface must be declared in its own file.
 
 public interface ISymptomWriter {
 
+	List<String> WriteSymptomsOutput();
 }
