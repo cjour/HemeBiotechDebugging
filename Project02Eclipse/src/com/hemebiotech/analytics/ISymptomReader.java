@@ -19,14 +19,4 @@ public interface ISymptomReader {
 	List<String> GetSymptoms ();
 }
 
-public interface ISymptomWriter {
-/**
-*Anything that will write source from data
-* Dupplication must not be present in this output !
-*
-*The implementation must order the list by alphabetic order.
-*/
-
-List<String>WriteSymptom ();
-
-}
+// Each interface must be declared in its own field.
