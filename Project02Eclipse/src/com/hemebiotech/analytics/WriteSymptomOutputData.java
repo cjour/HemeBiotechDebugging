@@ -1,33 +1,26 @@
 package com.hemebiotech.analytics;
 
-import java.util.List;
+import java.io.FileWriter;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class WriteSymptomOutputData implements ISymptomWriter {
 
-	private List<String> listOfSymptom;
 	
+	@Override
+	public void WriteSymptomsOutput(TreeMap<String, Integer> listOfSymptom) {
 		
-	public WriteSymptomOutputData(List<String> listOfSymptom) {
-		super();
-		setListOfSymptom(listOfSymptom);;
-	}
-	
-	
-	public void setListOfSymptom(List<String> listOfSymptom) {
-		
-		if(listOfSymptom.size() <= 0) {
-			
-			throw new Error("Your list doesn't contain any items. Try again with a valid list.");
+		try {
+			FileWriter writer = new FileWriter ("C:\\Users\\jourc\\Desktop\\All\\Developpement\\JAVA\\OpenClassrooms\\HemeBiotechDebugging\\Project02Eclipse\\result.txt");
+			for (Map.Entry<String, Integer> entry : listOfSymptom.entrySet()) {
+				writer.write(entry.getKey().toString() + " : " + entry.getValue().toString() + "\n");
+				writer.flush();
+			}
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
-		this.listOfSymptom = listOfSymptom;
-	}
-
-
-
-	@Override
-	public List<String> WriteSymptomsOutput() {
-		return null;
 	}
 
 }

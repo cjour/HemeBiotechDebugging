@@ -1,8 +1,7 @@
 package com.hemebiotech.analytics;
 
 
-import java.io.FileWriter;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	
@@ -12,13 +11,12 @@ public class AnalyticsCounter {
 		
 		ReadSymptomDataFromFile readMyFile = new ReadSymptomDataFromFile("symptoms.txt");		
 		SymptomCounter listMySymptom = new SymptomCounter();
+		WriteSymptomOutputData getMyOutput = new WriteSymptomOutputData();
 		
-		HashMap<String, Integer> listOfSymptom = listMySymptom.SortSymptomByAlphabeticalOrder(listMySymptom.CountSymptom(listMySymptom.ListSymptoms(readMyFile.GetSymptoms()), readMyFile.GetSymptoms()));
-		System.out.println(listOfSymptom);
+		TreeMap<String, Integer> listOfSymptom = listMySymptom.CountSymptom(listMySymptom.ListSymptoms(readMyFile.GetSymptoms()), readMyFile.GetSymptoms());
+		getMyOutput.WriteSymptomsOutput(listOfSymptom);
 		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
+			
 		
-		writer.close();
 	}
 }

@@ -1,8 +1,7 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
-
 import java.util.List;
+import java.util.TreeMap;
 
 
 
@@ -22,25 +21,18 @@ public interface ISymptomCounter {
 		 * 
 		 * @return a raw listing of all symptoms obtained from a data source, duplicates are possible/probable
 		 */
-		HashMap<String, Integer> ListSymptoms(List<String> arrayOfSymptom);
+		TreeMap<String, Integer> ListSymptoms(List<String> arrayOfSymptom);
 		
 		
 		/**
 		 * If you want to sore the list you need to do it yourself.
 		 * If no data available, return an empty List.
 		 * 
-		 * @return a raw listing of symptoms and theirs number of occurrences.
+		 * @return a raw listing of symptoms and theirs number of occurrences in alphabetical order.
 		 */
-		HashMap<String, Integer> CountSymptom (HashMap<String, Integer> arrayOfSymptomAndOccurence, List<String> arrayOfSymptom);
+		TreeMap<String, Integer> CountSymptom (TreeMap<String, Integer> arrayOfSymptomAndOccurence, List<String> arrayOfSymptom);
 
-		/**
-		 * 
-		 * If no data available, return an empty List.
-		 * 
-		 * @return an  alphabetical ordered list of symptoms and theirs number of occurrences.
-		 */
-		HashMap<String, Integer> SortSymptomByAlphabeticalOrder( HashMap<String, Integer> hashMapToSort);
-
+		
 
 
 	}

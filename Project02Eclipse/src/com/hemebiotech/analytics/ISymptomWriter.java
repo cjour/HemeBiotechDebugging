@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * Anything that will write source from symptom data.
@@ -18,5 +18,5 @@ public interface ISymptomWriter {
 	 * @return a HashMap with alphabetical ordered symptoms
 	 */
 
-	HashMap<String, Integer> WriteSymptomsOutput();
+	void WriteSymptomsOutput(TreeMap<String, Integer> listOfSymptom);
 }
