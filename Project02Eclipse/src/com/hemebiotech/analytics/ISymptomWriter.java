@@ -3,20 +3,14 @@ package com.hemebiotech.analytics;
 import java.util.TreeMap;
 
 /**
- * Anything that will write source from symptom data.
- * The important part is, the return value from the operation, which is a list of strings,
- * that may not contain many duplications
- * 
- * The implementation must return an order list
- * 
+ * A writer outputting alphabetical ordered data in a file.txt
  */
-// Each interface must be declared in its own file.
-  
+
 public interface ISymptomWriter {
-	/** Should return at least a one size HashMap
+	/**
 	 * 
-	 * @return a HashMap with alphabetical ordered symptoms
+	 * @param listOfSymptom : a TreeMap of strings with their respective occurrences.
 	 */
 
-	void WriteSymptomsOutput(TreeMap<String, Integer> listOfSymptom);
+	void writeSymptomsOutput(TreeMap<String, Integer> listOfSymptom);
 }

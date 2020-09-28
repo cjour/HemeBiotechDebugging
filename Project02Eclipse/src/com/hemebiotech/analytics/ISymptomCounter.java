@@ -3,34 +3,28 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.TreeMap;
 
-
-
 /**
- * Anything that will manipulate data from a source
- * The important part is, the return value from the operation, which is a list of strings or a HashMap,
- * that, in both cases, must not contain duplications.
- * 
+ *Manipulate strings from List, Treemap. 
+ *
  */
 
 public interface ISymptomCounter {
 
-	
-	
 		/**
-		 * If no data available, return an empty List.
-		 * 
-		 * @return a raw listing of all symptoms obtained from a data source, duplicates are possible/probable
+		 * Clean a list of duplicated strings.
+		 * @param arrayOfSymptom : the array you want to clean from duplicated strings.
+		 * @return A list of strings with no duplicates.
 		 */
-		TreeMap<String, Integer> ListSymptoms(List<String> arrayOfSymptom);
+		TreeMap<String, Integer> listSymptoms(List<String> arrayOfSymptom);
 		
 		
 		/**
-		 * If you want to sore the list you need to do it yourself.
-		 * If no data available, return an empty List.
-		 * 
-		 * @return a raw listing of symptoms and theirs number of occurrences in alphabetical order.
+		 * Read a list of strings and count their respective occurrences.
+		 * @param arrayOfSymptomAndOccurence : a TreeMap containing the strings value, as mapped value, you want to count. 
+		 * @param arrayOfSymptom : an array which represents the strings values you want to count. <b>Must not contain duplicate.</b>
+		 * @return A list of strings and theirs number of occurrences in alphabetical order.
 		 */
-		TreeMap<String, Integer> CountSymptom (TreeMap<String, Integer> arrayOfSymptomAndOccurence, List<String> arrayOfSymptom);
+		TreeMap<String, Integer> countSymptom (TreeMap<String, Integer> arrayOfSymptomAndOccurence, List<String> arrayOfSymptom);
 
 		
 
