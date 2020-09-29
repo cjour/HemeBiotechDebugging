@@ -9,17 +9,21 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 		
 		
-		ReadSymptomDataFromFile readMyFile = new ReadSymptomDataFromFile("C:\\Users\\jourc\\Desktop\\All\\Developpement\\JAVA\\OpenClassrooms\\p2_jourdain_clement\\Project02Eclipse\\symptoms.txt");		
+		ReadSymptomDataFromFile readMyFile = new ReadSymptomDataFromFile("../symptoms.txt");		
 		SymptomCounter listMySymptom = new SymptomCounter();
-		WriteSymptomOutputData getMyOutput = new WriteSymptomOutputData();
+		WriteSymptomOutputData getMyOutput = new WriteSymptomOutputData("../result.txt");
 		
-		//First read input file, then extract symptom and finally count them.
-		TreeMap<String, Integer> listOfSymptom = listMySymptom.countSymptom(listMySymptom.listSymptoms(readMyFile.getSymptoms()), readMyFile.getSymptoms());
+		//reading the input file and extracting ALL data in an array
+		var arrayOfSymptom = readMyFile.getSymptoms();
+		
+		//extracting symptoms into a collection and initializating their occurences to 0
+		var arrayOfSymptomWithoutDuplicate = listMySymptom.listSymptoms(arrayOfSymptom);
+		
+		//counting occurences in arrayOfSymptom and adding them into arrayOfSymptomAndTheirsOccurences
+		TreeMap<String, Integer> arrayOfSymptomAndTheirsOccurences = listMySymptom.countSymptom(arrayOfSymptomWithoutDuplicate, arrayOfSymptom);
 		
 		//writing output to the specified path.
-		getMyOutput.writeSymptomsOutput(listOfSymptom);
-		
-			
+		getMyOutput.writeSymptomsOutput(arrayOfSymptomAndTheirsOccurences);
 		
 	}
 }
